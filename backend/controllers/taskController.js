@@ -8,13 +8,14 @@ exports.getTasks = async (req, res) => {
 
 // POST - Create new task
 exports.createTask = async (req, res) => {
-  const { title, description, assignedTo } = req.body;
+  const { title, description, assignedTo, status } = req.body;
 
   const task = await Task.create({
     title,
     description,
     assignedTo,
-    createdBy: req.user.userId, 
+    status: status,
+    createdBy: req.user.userId,
   });
 
   // Emit to all clients
@@ -23,13 +24,6 @@ exports.createTask = async (req, res) => {
 
   io.emit('taskCreated', populatedTask);
 
-  if (populatedTask.assignedTo && populatedTask.assignedTo._id) {
-    io.to(populatedTask.assignedTo._id.toString()).emit('notification', {
-      message: `New Task Assigned: ${populatedTask.title}`,
-      taskId: populatedTask._id,
-      type: 'assigned',
-    });
-  }
 
   res.status(201).json(populatedTask);
 };
@@ -79,7 +73,7 @@ exports.getTaskById = async (req, res) => {
       return res.status(404).json({ message: 'Task not found' });
     }
 
-    res.status(200).json({ task }); 
+    res.status(200).json({ task });
   } catch (error) {
     console.error("Error fetching task by ID:", error);
     res.status(500).json({ message: 'Server error' });
