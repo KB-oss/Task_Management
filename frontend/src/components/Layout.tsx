@@ -76,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         sx={{
           width: drawerWidth,
           flexShrink: 0,
-          display: { xs: "none", sm: "block" },
+          display: { xs: "none", sm: "none" },
           "& .MuiDrawer-paper": {
             width: drawerWidth,
             boxSizing: "border-box",
@@ -86,7 +86,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       >
         <Toolbar />
         <Box sx={{ overflow: "auto" }}>
-          <List>
+          <List >
             {menuItems.map(({ text, icon, path }) => (
               <ListItem
                 key={text}
