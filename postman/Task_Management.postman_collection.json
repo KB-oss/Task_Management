@@ -1,0 +1,245 @@
+{
+	"info": {
+		"_postman_id": "5f29c349-3a73-4813-8080-c93dd405a3c9",
+		"name": "Task_Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32993236",
+		"_collection_link": "https://new999-4074.postman.co/workspace/new~e1aaa99a-ad7a-4980-a845-cc2dcad498ba/collection/32993236-5f29c349-3a73-4813-8080-c93dd405a3c9?action=share&source=collection_link&creator=32993236"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n{\r\n  \"name\": \"frank\",\r\n  \"email\": \"frank@example.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjoiNjU5N2JmNjA5ODhkNWY1OWJhNmRjZTFhNDAyNjVkMjUxMDE3Y2U0Y2UzZDc1NzdjZjcxMjUwOWI0YWI0NDE2MDJmYzUyOTcyNWNlYTkzYjVlMDY1N2U1NjA4YWUwYjJjYjZjOWIzNGU5NWNmOTBjZjU5MGVkODc5YTQ4MzJjZTYzMjVkNWU5YjA5MWFmZDc3Nzk5YmVkODI5ZDIyNTAxMjRhMzFlOGU5NTdhYjE0MGM5MDYxNzEwYWRhYWU5NWJmZTdhYWY2Y2MxNWM0NDE3MTJjNWMyMDUwOWI5OTNjOGE5NWQ0MTlhNTQ0NzQzODY2NDkzNDAwMWI3Yzc5OTkxOTk0YWZiYzJmNzFkNTZhNTlkMDlkZjE4NzAzYjJiNjE3ODRmZDI3MjQ1ODM4MDdmOGIxY2FlYWJiYzA0ZDRmYTEwYWMwNTgyMGI5ODg1MDQxY2U1NWNhYjNlODNhYTRkNmEyMWMyMDYwZWFlY2E1NGJiNWM2M2Q3MjQ1ZDZjYTM1NGU3OWMzMWNlMzcxNDZmMWNkOTY2YzZmMjU4ZmFmYzM1NTczZjA0YzdlYTBjNWVhNDA2NDFjYWI1NWMwMTEwMTlkYzNiNGZlYjZhMTcwYTZmYzk4MTM0OGEwYjZmMmY5NmNkM2Q1ODRhNzM3YjMxZjVhYmE2ZDU4NzVmMDI0NDU3YTVhODIyNTI3ZDYwOGEwMWRjYzMxNjVhYmFmMjk1MDA0NzFhMjAxNTdlODgzMjVkYTFlMTAwMWE0NjE2ZmMzY2JmNzRkZjcwZmNmZDgyY2MzMjU1NzdmZTNhMjA1Y2VmOWMxZDA0ZTJjYzA3ZDM5OWVjMWIxMjI3ZTllYjZkZTQwMGVlMmFlOTI0YzdmOWE1OWY2MWZmYjI5MTZjYjM2In0.FA9NOhayKFa3QLuxsGYEUP-dssjouuN14qtw7JpDANM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"alice@example.com\",\r\n  \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_all_users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODg3ZDlhZDIwZTBiZWM5YTQ3YzI1ZjkiLCJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NTM4MTUxMjUsImV4cCI6MTc1NDQxOTkyNX0.825b3PUbWGTvh7KEDp--lHXaLhNLkHU873BLLYEyH8I",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/auth",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "create_tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODg3ZDlhZDIwZTBiZWM5YTQ3YzI1ZjkiLCJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NTM3MzM1NTcsImV4cCI6MTc1NDMzODM1N30.DqlwsM1Q7FUKzXEcHb1gmSteI5iYmGANq8qbJ9WLsSk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Design UI\",\r\n  \"description\": \"Design the main dashboard\",\r\n  \"assignedTo\":\"688797c62f1f4bebee9e8ac2\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/tasks/createTasks",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"createTasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODg3ZDlhZDIwZTBiZWM5YTQ3YzI1ZjkiLCJlbWFpbCI6ImFsaWNlQGV4YW1wbGUuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NTM3OTgzOTIsImV4cCI6MTc1NDQwMzE5Mn0.OoCTMHBH6tA7jd3XtEykKp88XwjIAL_UFPE_iX8jmA8",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/tasks",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update_tasks",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vault:token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"_id\": \"6887d9c420e0bec9a47c25fc\",\r\n        \"title\": \"Design wonderland\",\r\n        \"description\": \"Design the main dashboard\",\r\n        \"status\": \"pending\",\r\n        \"createdBy\": {\r\n            \"_id\": \"6887d9ad20e0bec9a47c25f9\",\r\n            \"name\": \"Alice\",\r\n            \"email\": \"alice@example.com\"\r\n        },\r\n        \"assignedTo\": null,\r\n        \"createdAt\": \"2025-07-28T20:12:52.051Z\",\r\n        \"updatedAt\": \"2025-07-28T20:12:52.051Z\",\r\n        \"__v\": 0\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/tasks/6887d9c420e0bec9a47c25fc",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"tasks",
+								"6887d9c420e0bec9a47c25fc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete_tasks",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get_taskById",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "http://localhost:5000",
+			"type": "default"
+		}
+	]
+}
